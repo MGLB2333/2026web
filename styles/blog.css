@@ -1,0 +1,63 @@
+/* ===== LightBoxTV — blog ===== */
+/* Blog index (hero, filters, featured, post grid) plus the shared post-card
+   system reused by article "Keep reading" rows and the end CTA. */
+
+:root{ --wrap:1180px; }
+body{background:var(--paper);}
+
+/* ===== BLOG INDEX ===== */
+.blog-hero{padding:150px 0 56px;}
+.blog-hero .eyebrow{margin-bottom:18px;display:block;}
+.blog-hero h1{font-size:clamp(40px,5.4vw,76px);letter-spacing:-.03em;max-width:16ch;}
+.blog-hero p{margin-top:22px;font-size:clamp(17px,1.5vw,21px);color:var(--muted);max-width:54ch;}
+
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:42px 0 8px;}
+.chip{font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;border:1px solid var(--line);color:#2C313A;background:#fff;cursor:pointer;transition:background .2s, color .2s, border-color .2s;}
+.chip.on,.chip:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+/* featured */
+.featured{display:grid;grid-template-columns:1.1fr .9fr;gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;margin:30px 0 56px;background:#fff;transition:box-shadow .3s, transform .3s;}
+.featured:hover{box-shadow:0 30px 64px rgba(20,30,60,.12);transform:translateY(-4px);}
+.featured .ph{min-height:360px;position:relative;background:var(--grad);}
+.featured .ph .cat{position:absolute;left:22px;top:22px;font-size:12px;font-weight:600;background:rgba(255,255,255,.94);color:var(--ink);padding:7px 14px;border-radius:999px;z-index:1;}
+.featured .fb{padding:48px 52px;display:flex;flex-direction:column;justify-content:center;}
+.featured .fb .meta{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.featured .fb h2{font-size:clamp(26px,2.6vw,40px);margin:14px 0 16px;}
+.featured .fb p{color:var(--muted);font-size:17px;max-width:46ch;}
+.featured .fb .more{margin-top:26px;font-weight:600;color:var(--blue-deep);display:inline-flex;gap:8px;align-items:center;}
+
+/* post grid */
+.postgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:90px;}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s, box-shadow .3s;}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(20,30,60,.10);}
+.pcard .ph{height:188px;position:relative;background:var(--grad);}
+.pcard .ph.v2{background:linear-gradient(135deg,#3A2C9E,#22C3ED);}
+.pcard .ph.v3{background:linear-gradient(135deg,#0E9AC9,#1B1550);}
+.pcard .ph.v4{background:linear-gradient(135deg,#22C3ED,#2A1F78);}
+.pcard .ph.v5{background:linear-gradient(135deg,#1B1550,#0E9AC9);}
+.pcard .ph.v6{background:linear-gradient(135deg,#3A2C9E,#0C0D11);}
+.pcard .ph .cat{position:absolute;left:16px;top:16px;font-size:12px;font-weight:600;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 13px;border-radius:999px;z-index:1;}
+/* cover image overlaying the gradient on any card thumbnail (.pcard / .featured) */
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.pcard .pb{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1;}
+.pcard .meta{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.pcard h3{font-size:21px;line-height:1.2;margin:11px 0 9px;}
+.pcard p{font-size:15px;color:var(--muted);}
+.pcard .more{margin-top:auto;padding-top:18px;font-size:14px;font-weight:600;color:var(--blue-deep);}
+
+/* "keep reading" (article footer) */
+.more-wrap{background:var(--tint);border-top:1px solid var(--line);padding:80px 0;}
+.more-wrap h3{font-size:clamp(24px,2.4vw,32px);margin-bottom:34px;}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+
+/* end CTA */
+.endcta{padding:96px 0;}
+.endcta .box{background:var(--grad);border-radius:28px;padding:72px 48px;text-align:center;color:#fff;}
+.endcta h2{font-size:clamp(30px,3.6vw,52px);margin-bottom:16px;}
+.endcta p{font-size:19px;color:rgba(255,255,255,.9);max-width:48ch;margin:0 auto 30px;}
+
+@media (max-width:940px){
+  .featured{grid-template-columns:1fr;} .featured .ph{min-height:240px;}
+  .postgrid,.more-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:620px){ .postgrid,.more-grid{grid-template-columns:1fr;} }
