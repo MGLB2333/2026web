@@ -27,8 +27,9 @@ body{background:var(--black);}
 .panel.lt{background:var(--paper);color:var(--ink);}
 .panel.cr{background:var(--cream);color:var(--ink);}
 .panel.lt + .panel.lt{border-top:1px solid var(--line);}
-.pad{padding:92px 0;}
-.pad-lg{padding:112px 0;}
+/* vertical only — horizontal gutter comes from .wrap (don't clobber it) */
+.pad{padding-block:92px;}
+.pad-lg{padding-block:112px;}
 
 /* three-word callout */
 .callout{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
@@ -126,7 +127,7 @@ body{background:var(--black);}
   .hero-in{max-width:100%;}
   .callout,.mgrid,.news,.bgrid,.bigcta{grid-template-columns:1fr;}
   .feat{grid-template-columns:1fr;padding:40px;} .feat .art{justify-content:flex-start;height:150px;}
-  .pad,.pad-lg{padding:72px 0;}
+  .pad,.pad-lg{padding-block:72px;}
   .mgrid{grid-template-columns:1fr 1fr;}
 }
 @media (max-width:560px){
@@ -134,5 +135,5 @@ body{background:var(--black);}
   .display{font-size:clamp(33px,8.4vw,46px);}
   .hero h1 .nowrap{white-space:normal;}
   .hero{padding:116px 0 54px;}
-  .pad,.pad-lg{padding:64px 0;}
+  .pad,.pad-lg{padding-block:64px;}
 }
