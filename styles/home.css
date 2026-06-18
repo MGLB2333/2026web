@@ -43,31 +43,21 @@ body{background:var(--black);}
 .statement .acc{color:var(--blue);}
 .stmt-sub{margin-top:34px;max-width:52ch;font-size:clamp(17px,1.5vw,21px);}
 
-/* trio (Plan / Manage / Measure) */
-/* platform split: copy + horizontal card scroller */
-.plat-split{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center;margin-top:24px;}
-.plat-left .h2{margin-top:14px;}
-.plat-left p.lead{margin-top:20px;max-width:34ch;}
-.plat-left .cta-row{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap;}
-.plat-scroller{position:relative;min-width:0;}
-.plat-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;-ms-overflow-style:none;scrollbar-width:none;}
-.plat-track::-webkit-scrollbar{display:none;}
-.pcard{position:relative;flex:0 0 300px;scroll-snap-align:start;border:1px solid var(--line);border-radius:22px;background:#fff;padding:34px 30px;display:flex;flex-direction:column;min-height:300px;transition:transform .3s, box-shadow .3s, border-color .3s;}
-.pcard:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(20,30,60,.10);border-color:#cdd5de;}
-.pcard .pc-ico{width:60px;height:60px;border-radius:15px;background:rgba(34,195,237,.10);display:flex;align-items:center;justify-content:center;margin-bottom:auto;}
-.pcard .pc-ico svg{width:28px;height:28px;stroke:var(--blue-deep);}
-.pcard h3{font-family:var(--disp);font-weight:500;font-size:22px;margin:26px 0 10px;letter-spacing:-.02em;color:var(--ink);}
-.pcard p{font-size:16px;line-height:1.5;color:var(--muted);}
-.plat-controls{display:flex;align-items:center;gap:14px;margin-top:28px;}
-.plat-arrows{display:flex;gap:12px;}
-.plat-arrows button{width:50px;height:50px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
-.plat-arrows button svg{width:20px;height:20px;}
-.plat-arrows button:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
-.plat-prog{flex:1;height:4px;border-radius:4px;background:var(--line);position:relative;overflow:hidden;max-width:180px;}
-.plat-prog span{position:absolute;top:0;left:0;height:100%;border-radius:4px;background:var(--blue);transition:left .3s, width .3s;}
+/* The platform (Plan / Manage / Measure): heading + static card grid */
+.plat-head{max-width:60ch;margin-bottom:46px;}
+.plat-head .h2{margin-top:14px;}
+.plat-head p.lead{margin-top:18px;max-width:50ch;}
+.plat-vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+.pvcard{border-top:2px solid var(--ink);padding-top:24px;}
+.pvcard .pv-ico{width:46px;height:46px;border-radius:12px;background:rgba(34,195,237,.10);display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+.pvcard .pv-ico svg{width:24px;height:24px;stroke:var(--blue-deep);}
+.pvcard h3{font-family:var(--disp);font-weight:600;font-size:22px;letter-spacing:-.02em;margin-bottom:12px;}
+.pvcard p{color:var(--muted);font-size:16px;line-height:1.55;}
 @media (max-width:880px){
-  .plat-split{grid-template-columns:1fr;gap:34px;}
-  .pcard{flex-basis:78%;}
+  .plat-vgrid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .plat-vgrid{grid-template-columns:1fr;}
 }
 
 /* feature callout card (stat) */

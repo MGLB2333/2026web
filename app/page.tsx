@@ -2,7 +2,6 @@ import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
-import PlatformScroller from "@/components/PlatformScroller";
 import { getAllPostMeta } from "@/lib/posts";
 import "@/styles/home.css";
 
@@ -58,20 +57,51 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Plan / Manage / Measure */}
+        {/* The platform — Plan / Manage / Measure */}
         <section className="panel cr" id="what">
           <div className="wrap pad">
-            <div className="plat-split">
-              <div className="plat-left reveal">
-                <span className="eyebrow">The platform</span>
-                <h2 className="h2">Everything you need,<br />all in one place.</h2>
-                <p className="lead">Plan, manage and measure every TV advertising campaign without switching between tools.</p>
-                <div className="cta-row">
-                  <Link href="/contact?reason=demo" className="btn dark">Book a demo <span className="ar">↗</span></Link>
-                  <Link href="#platform" className="btn line">Explore the platform</Link>
-                </div>
+            <div className="plat-head reveal">
+              <span className="eyebrow">The platform</span>
+              <h2 className="h2">Everything you need, all in one place.</h2>
+              <p className="lead">Plan, manage and measure every TV advertising campaign without switching between tools.</p>
+            </div>
+            <div className="plat-vgrid">
+              <div className="pvcard reveal">
+                <div className="pv-ico"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="3.4" /><path d="M12 3v3M12 18v3M3 12h3M18 12h3" /></svg></div>
+                <h3>Plan with confidence</h3>
+                <p>Build audiences, compare inventory and forecast reach across linear and connected TV.</p>
               </div>
-              <PlatformScroller />
+              <div className="pvcard reveal">
+                <div className="pv-ico"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16M4 12h16M4 17h10" /><circle cx="18" cy="17" r="2.2" /></svg></div>
+                <h3>Manage it all in one place</h3>
+                <p>Create plans, manage deals and collaborate across planning and trading teams seamlessly.</p>
+              </div>
+              <div className="pvcard reveal">
+                <div className="pv-ico"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg></div>
+                <h3>Measure across all video</h3>
+                <p>Track performance, delivery and insights across every screen, in near real time.</p>
+              </div>
+              <div className="pvcard reveal">
+                <div className="pv-ico"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" /><path d="M9 12l2 2 4-4" /></svg></div>
+                <h3>One source of truth</h3>
+                <p>Every campaign planned and measured in one connected platform your team can share.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* feature stat */}
+        <section className="panel cr">
+          <div className="wrap pad">
+            <div className="feat reveal">
+              <div>
+                <span className="eyebrow" style={{ color: "#fff", opacity: 0.85 }}>The outcome</span>
+                <h2 style={{ marginTop: 14 }}>Give planners 10+ hours back every week.</h2>
+                <p>By automating workflows, connecting systems and creating a single source of truth, LightBoxTV gives planning teams their time back.</p>
+              </div>
+              <div className="art">
+                <svg viewBox="0 0 220 200" fill="none" aria-hidden="true" style={{ height: "100%" }}><polygon points="110,20 190,66 110,112 30,66" fill="rgba(255,255,255,.9)"></polygon><polygon points="30,66 110,112 110,188 30,142" fill="rgba(255,255,255,.45)"></polygon><polygon points="190,66 110,112 110,188 190,142" fill="rgba(255,255,255,.7)"></polygon></svg>
+              </div>
             </div>
           </div>
         </section>
@@ -89,22 +119,6 @@ export default function HomePage() {
               <div className="mcard reveal"><div className="icot"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h16M4 12h16M4 18h10"></path></svg></div><h4>Planner</h4><p>Select inventory, forecast reach and allocate budget.</p></div>
               <div className="mcard reveal"><div className="icot"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 7h18v12H3zM3 7l3-3h12l3 3M9 12h6"></path></svg></div><h4>Dealbook</h4><p>Manage pricing, inventory and commitments together.</p></div>
               <div className="mcard reveal"><div className="icot"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg></div><h4>Analytics</h4><p>Reporting, reach and frequency, and cross platform performance.</p></div>
-            </div>
-          </div>
-        </section>
-
-        {/* feature stat */}
-        <section className="panel cr">
-          <div className="wrap pad">
-            <div className="feat reveal">
-              <div>
-                <span className="eyebrow" style={{ color: "#fff", opacity: 0.85 }}>The outcome</span>
-                <h2 style={{ marginTop: 14 }}>Give planners 10+ hours back every week.</h2>
-                <p>By automating workflows, connecting systems and creating a single source of truth, LightBoxTV gives planning teams their time back.</p>
-              </div>
-              <div className="art">
-                <svg viewBox="0 0 220 200" fill="none" aria-hidden="true" style={{ height: "100%" }}><polygon points="110,20 190,66 110,112 30,66" fill="rgba(255,255,255,.9)"></polygon><polygon points="30,66 110,112 110,188 30,142" fill="rgba(255,255,255,.45)"></polygon><polygon points="190,66 110,112 110,188 190,142" fill="rgba(255,255,255,.7)"></polygon></svg>
-              </div>
             </div>
           </div>
         </section>
