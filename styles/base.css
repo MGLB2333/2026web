@@ -91,6 +91,9 @@ footer .fl p{color:var(--dmuted);font-size:15px;max-width:32ch;}
 .foot-cols a:hover{color:var(--blue);}
 .foot-base{margin-top:50px;padding-top:24px;border-top:1px solid var(--dline);display:flex;justify-content:space-between;color:var(--dmuted);font-size:13px;flex-wrap:wrap;gap:10px;}
 .foot-base a:hover{color:var(--blue);}
+footer .foot-social{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin-top:18px;border:1px solid var(--dline);border-radius:50%;color:rgba(255,255,255,.82);transition:color .2s,border-color .2s,background .2s;}
+footer .foot-social svg{width:18px;height:18px;}
+footer .foot-social:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.06);}
 
 /* ===== SCROLL REVEAL ===== */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
