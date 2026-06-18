@@ -22,30 +22,30 @@ const TEAM = [
   {
     initial: "M",
     grad: "linear-gradient(135deg,#22C3ED,#3A2C9E)",
-    name: "Mark",
-    role: "Co-founder & CEO",
-    bio: "Mark sets the company’s direction and leads LightBoxTV’s growth across the modern TV landscape. He spends his time with the agencies and broadcasters shaping where the industry goes next.",
+    name: "Mark Giblin",
+    role: "Co-Founder & CEO",
+    bio: "Programmatic TV and media technology specialist with leadership experience across Magnite, Unruly, PubMatic, the Financial Times and The Telegraph. Mark has spent his career helping agencies and brands navigate the evolving TV and video advertising landscape.",
   },
   {
     initial: "D",
     grad: "linear-gradient(135deg,#3A2C9E,#22C3ED)",
-    name: "Dean",
-    role: "Co-founder & COO",
-    bio: "Dean runs the day-to-day of the business, from operations to customer success. He makes sure every agency gets real value from LightBoxTV and that the company scales without losing its edge.",
+    name: "Dean Cussell",
+    role: "Co-Founder & COO",
+    bio: "Experienced ad-tech entrepreneur with a track record of building and scaling successful technology businesses. Founder of Statiq, which was acquired by Telefónica, with deep expertise in product delivery, operations and commercial growth.",
   },
   {
     initial: "S",
     grad: "linear-gradient(135deg,#0E9AC9,#1B1550)",
-    name: "Simon",
-    role: "Co-founder & CPTO",
-    bio: "Simon leads product and technology, owning the platform that planning teams rely on every day. He turns the hard problems of modern TV into software that feels simple to use.",
+    name: "Simon Macson",
+    role: "CPTO",
+    bio: "One of the industry’s most experienced TV advertising product leaders. Former Head of Product, Europe at Samsung Ads and previously responsible for building and launching Sky AdSmart’s planning and analytics platform.",
   },
 ];
 
 export default function TeamPage() {
   return (
     <>
-      <SiteNav />
+      <SiteNav activeAbout />
       <ScrollReveal />
 
       {/* HERO */}

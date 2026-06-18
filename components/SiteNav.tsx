@@ -5,13 +5,15 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site";
 
 interface SiteNavProps {
-  /** Highlight the Blog link. */
+  /** Highlight the Blog/News link. */
   activeBlog?: boolean;
+  /** Highlight the About link. */
+  activeAbout?: boolean;
   /** Force a solid white nav (used on the Cannes page over its banner). */
   solid?: boolean;
 }
 
-export default function SiteNav({ activeBlog = false, solid = false }: SiteNavProps) {
+export default function SiteNav({ activeBlog = false, activeAbout = false, solid = false }: SiteNavProps) {
   const [scrolled, setScrolled] = useState(solid);
   const [onDark, setOnDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -61,6 +63,7 @@ export default function SiteNav({ activeBlog = false, solid = false }: SiteNavPr
           <div className="nav-links">
             <Link href="/#platform">Platform</Link>
             <Link href="/#why">Why LightBoxTV</Link>
+            <Link href="/team" className={activeAbout ? "active" : undefined}>About</Link>
             <Link href="/blog" className={activeBlog ? "active" : undefined}>News</Link>
           </div>
           <div className="nav-cta">
@@ -79,6 +82,7 @@ export default function SiteNav({ activeBlog = false, solid = false }: SiteNavPr
         <div className="mobile-menu">
           <Link href="/#platform" onClick={close}>Platform</Link>
           <Link href="/#why" onClick={close}>Why LightBoxTV</Link>
+          <Link href="/team" onClick={close}>About</Link>
           <Link href="/blog" onClick={close}>News</Link>
           <a href={siteConfig.appUrl} onClick={close}>Login</a>
           <Link href="/contact?reason=demo" className="btn dark" onClick={close}>Book a demo</Link>
