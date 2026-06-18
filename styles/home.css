@@ -44,7 +44,7 @@ body{background:var(--black);}
 .stmt-sub{margin-top:34px;max-width:52ch;font-size:clamp(17px,1.5vw,21px);}
 
 /* The platform (Plan / Manage / Measure): heading + static card grid */
-.plat-head{max-width:60ch;margin-bottom:46px;}
+.plat-head{max-width:820px;margin-bottom:46px;}
 .plat-head .h2{margin-top:14px;}
 .plat-head p.lead{margin-top:18px;max-width:50ch;}
 .plat-vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}

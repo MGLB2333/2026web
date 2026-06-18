@@ -62,7 +62,7 @@ export default function HomePage() {
           <div className="wrap pad">
             <div className="plat-head reveal">
               <span className="eyebrow">The platform</span>
-              <h2 className="h2">Everything you need, all in one place.</h2>
+              <h2 className="h2">Everything you need,<br />all in one place.</h2>
               <p className="lead">Plan, manage and measure every TV advertising campaign without switching between tools.</p>
             </div>
             <div className="plat-vgrid">
