@@ -34,6 +34,11 @@ body{background:var(--paper);}
 .prose img{width:100%;border-radius:16px;margin:8px 0;}
 .prose figure{margin:8px 0;}
 .prose figcaption{font-size:14px;color:var(--muted);margin-top:10px;text-align:center;}
+.prose table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:16px;}
+.prose thead th{background:var(--tint);text-align:left;font-weight:700;color:var(--ink);}
+.prose th,.prose td{padding:13px 16px;border-bottom:1px solid var(--line);line-height:1.5;}
+.prose td{color:#2C313A;}
+.prose tbody tr:last-child td{border-bottom:none;}
 
 .art-foot{max-width:760px;margin:46px auto 0;padding:34px 0 90px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .art-foot .share{display:flex;gap:10px;}

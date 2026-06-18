@@ -37,7 +37,7 @@ export default function SiteFooter() {
         <div className="foot-base">
           <span>© 2026 LightBoxTV. All rights reserved.</span>
           <span>
-            <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link>
+            <Link href="/privacy">Privacy</Link> · <Link href="/cookies">Cookies</Link> · <Link href="/terms">Terms</Link>
           </span>
         </div>
       </div>
