@@ -22,6 +22,7 @@ export default function SiteFooter() {
             </div>
             <div>
               <h6>Company</h6>
+              <Link href="/team">About</Link>
               <Link href="/contact?reason=demo">Book a demo</Link>
               <Link href="/contact">Contact us</Link>
               <a href={siteConfig.appUrl}>Login</a>

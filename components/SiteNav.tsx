@@ -20,7 +20,7 @@ export default function SiteNav({ activeBlog = false, solid = false }: SiteNavPr
     if (solid) return; // solid nav: always white, no scroll/dark switching
     let darkZones: Array<[number, number]> = [];
     const refreshZones = () => {
-      darkZones = Array.from(document.querySelectorAll(".panel.dk, footer")).map((el) => {
+      darkZones = Array.from(document.querySelectorAll(".panel.dk, .ab-hero, .stat-strip, footer")).map((el) => {
         const r = el.getBoundingClientRect();
         const top = r.top + window.scrollY;
         return [top, top + (el as HTMLElement).offsetHeight] as [number, number];
