@@ -63,7 +63,8 @@ export default function SiteNav({ activeBlog = false, activeAbout = false, solid
           <div className="nav-links">
             <Link href="/#platform">Platform</Link>
             <Link href="/#why">Why LightBoxTV</Link>
-            <Link href="/team" className={activeAbout ? "active" : undefined}>About</Link>
+            {/* About hidden until the /team page is ready — page still reachable directly */}
+            {/* <Link href="/team" className={activeAbout ? "active" : undefined}>About</Link> */}
             <Link href="/blog" className={activeBlog ? "active" : undefined}>News</Link>
           </div>
           <div className="nav-cta">
@@ -83,7 +84,7 @@ export default function SiteNav({ activeBlog = false, activeAbout = false, solid
           <div className="mm-links">
             <Link href="/#platform" onClick={close}>Platform</Link>
             <Link href="/#why" onClick={close}>Why LightBoxTV</Link>
-            <Link href="/team" onClick={close}>About</Link>
+            {/* <Link href="/team" onClick={close}>About</Link> */}
             <Link href="/blog" onClick={close}>News</Link>
             <a href={siteConfig.appUrl} onClick={close}>Login</a>
           </div>

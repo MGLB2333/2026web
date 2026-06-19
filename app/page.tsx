@@ -53,7 +53,8 @@ export default function HomePage() {
         <section className="panel dk">
           <div className="wrap pad-lg">
             <h2 className="h2 statement reveal">We&apos;re bringing modern TV <span className="acc">back together</span>.</h2>
-            <p className="stmt-sub lead reveal">TV planning has changed. What was a handful of linear channels is now dozens of platforms, formats and buying routes. LightBoxTV unifies planning, forecasting, collaboration and analytics so teams can move as one.</p>
+            <p className="stmt-sub lead reveal">TV has evolved faster than the tools used to plan it.</p>
+            <p className="stmt-sub lead reveal">What was once a handful of linear channels is now a fragmented ecosystem of broadcasters, streamers, audiences, measurement providers and buying platforms. LightBoxTV connects it all in a single operating system built for modern TV advertising.</p>
           </div>
         </section>
 
@@ -128,10 +129,11 @@ export default function HomePage() {
           <div className="wrap pad">
             <div className="reveal" style={{ maxWidth: "60ch", marginBottom: 14 }}>
               <span className="eyebrow">Why agencies choose LightBoxTV</span>
-              <h2 className="h2" style={{ marginTop: 14 }}>Smart automation that does the busywork for you.</h2>
+              <h2 className="h2" style={{ marginTop: 14 }}>Turn complexity into clarity.</h2>
+              <p className="lead" style={{ marginTop: 18 }}>And hours of manual work into minutes.</p>
             </div>
             <div className="bgrid reveal">
-              <div className="bcell"><div className="ic"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"></path></svg></div><h4>Automate the busywork</h4><p>Replace manual planning and reporting steps with automated workflows.</p></div>
+              <div className="bcell"><div className="ic"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"></path></svg></div><h4>Focus on Strategy</h4><p>Replace manual planning and reporting steps with automated workflows.</p></div>
               <div className="bcell"><div className="ic"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></div><h4>Reduce errors</h4><p>Cut duplication and rework with one connected source of truth.</p></div>
               <div className="bcell"><div className="ic"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3 20a6 6 0 0 1 12 0"></path><path d="M16 11l2 2 4-4"></path></svg></div><h4>Audience led plans</h4><p>Build audiences and forecast reach in a fraction of the time.</p></div>
               <div className="bcell"><div className="ic"><svg viewBox="0 0 24 24" fill="none" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg></div><h4>A holistic view</h4><p>See campaign performance across every screen, in near real time.</p></div>
