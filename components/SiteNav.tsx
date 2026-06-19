@@ -11,15 +11,28 @@ interface SiteNavProps {
   activeAbout?: boolean;
   /** Force a solid white nav (used on the Cannes page over its banner). */
   solid?: boolean;
+  /** Transparent white nav over a dark full-bleed hero; turns solid white on scroll. */
+  heroOverlay?: boolean;
 }
 
-export default function SiteNav({ activeBlog = false, activeAbout = false, solid = false }: SiteNavProps) {
+export default function SiteNav({ activeBlog = false, activeAbout = false, solid = false, heroOverlay = false }: SiteNavProps) {
   const [scrolled, setScrolled] = useState(solid);
-  const [onDark, setOnDark] = useState(false);
+  const [onDark, setOnDark] = useState(heroOverlay);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (solid) return; // solid nav: always white, no scroll/dark switching
+    if (heroOverlay) {
+      // Over a dark hero: white text while at top (transparent), solid white once scrolled.
+      const onScroll = () => {
+        const s = window.scrollY > 12;
+        setScrolled(s);
+        setOnDark(!s);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
     let darkZones: Array<[number, number]> = [];
     const refreshZones = () => {
       darkZones = Array.from(document.querySelectorAll(".panel.dk, .ab-hero, .stat-strip, footer")).map((el) => {
@@ -45,7 +58,7 @@ export default function SiteNav({ activeBlog = false, activeAbout = false, solid
       onScroll();
     });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [solid]);
+  }, [solid, heroOverlay]);
 
   const close = () => setMenuOpen(false);
   const navClass = ["", scrolled || solid ? "scrolled" : "", onDark ? "on-dark" : "", menuOpen ? "menu-open" : ""]
