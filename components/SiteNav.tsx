@@ -80,12 +80,16 @@ export default function SiteNav({ activeBlog = false, activeAbout = false, solid
           </div>
         </div>
         <div className="mobile-menu">
-          <Link href="/#platform" onClick={close}>Platform</Link>
-          <Link href="/#why" onClick={close}>Why LightBoxTV</Link>
-          <Link href="/team" onClick={close}>About</Link>
-          <Link href="/blog" onClick={close}>News</Link>
-          <a href={siteConfig.appUrl} onClick={close}>Login</a>
-          <Link href="/contact?reason=demo" className="btn dark" onClick={close}>Book a demo</Link>
+          <div className="mm-links">
+            <Link href="/#platform" onClick={close}>Platform</Link>
+            <Link href="/#why" onClick={close}>Why LightBoxTV</Link>
+            <Link href="/team" onClick={close}>About</Link>
+            <Link href="/blog" onClick={close}>News</Link>
+            <a href={siteConfig.appUrl} onClick={close}>Login</a>
+          </div>
+          <div className="mm-footer">
+            <Link href="/contact?reason=demo" className="btn dark" onClick={close}>Book a demo</Link>
+          </div>
         </div>
       </nav>
       <div className="scrim" onClick={close}></div>

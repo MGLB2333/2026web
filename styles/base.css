@@ -100,14 +100,25 @@ footer .foot-social:hover{color:#fff;border-color:#fff;background:rgba(255,255,2
 .reveal.in{opacity:1;transform:none;}
 
 @media (max-width:940px){
+  /* mobile: header is always solid white, regardless of scroll/section colour.
+     selectors include .on-dark to override the desktop dark-state rules' specificity */
+  nav,nav.scrolled,nav.on-dark,nav.on-dark.scrolled{background:#fff;backdrop-filter:none;border-bottom-color:rgba(0,0,0,.08);}
+  nav .nav-logo.c,nav.on-dark .nav-logo.c{display:block;}
+  nav .nav-logo.w,nav.on-dark .nav-logo.w{display:none;}
+  nav .burger span,nav.on-dark .burger span{background:var(--ink);}
+  nav .nav-login,nav.on-dark .nav-login{color:#2C313A;}
   .nav-links{display:none;}
   .nav-cta .nav-login{display:none;}
+  .nav-cta .btn.dark{display:none;}
   .burger{display:flex;}
-  .nav-in{padding:16px 22px;}
-  .mobile-menu{display:flex;flex-direction:column;gap:2px;position:fixed;top:0;right:0;bottom:0;width:min(84vw,340px);background:#fff;box-shadow:-20px 0 60px rgba(0,0,0,.2);transform:translateX(105%);transition:transform .32s cubic-bezier(.4,0,.2,1);z-index:85;padding:94px 26px 30px;}
-  nav.menu-open .mobile-menu{transform:none;}
-  .mobile-menu a{font-size:20px;font-weight:600;color:var(--ink);padding:16px 4px;border-bottom:1px solid var(--line);}
-  .mobile-menu a:last-child{margin-top:18px;border:none;justify-content:center;}
+  .nav-in{padding:16px 22px;position:relative;z-index:2;}
+  /* near-full-height panel that drops down from behind the bar */
+  .mobile-menu{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;height:94dvh;z-index:1;background:#fff;box-shadow:0 22px 44px rgba(0,0,0,.14);transform:translateY(-100%);transition:transform .22s ease-out;padding:84px 28px 30px;}
+  nav.menu-open .mobile-menu{transform:translateY(0);}
+  .mm-links{display:flex;flex-direction:column;gap:2px;}
+  .mm-links a{font-size:20px;font-weight:600;color:var(--ink);padding:16px 4px;border-bottom:1px solid var(--line);}
+  .mm-footer{margin-top:auto;padding-top:22px;border-top:1px solid var(--line);}
+  .mm-footer .btn{width:100%;justify-content:center;font-size:16px;padding:16px 22px;}
 }
 @media (max-width:560px){ .wrap{padding:0 28px;} }
 @media (prefers-reduced-motion:reduce){ *{animation:none !important;} .reveal{opacity:1;transform:none;} }
