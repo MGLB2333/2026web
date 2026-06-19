@@ -9,13 +9,15 @@ interface SiteNavProps {
   activeBlog?: boolean;
   /** Highlight the About link. */
   activeAbout?: boolean;
+  /** Highlight the Events link. */
+  activeEvents?: boolean;
   /** Force a solid white nav (used on the Cannes page over its banner). */
   solid?: boolean;
   /** Transparent white nav over a dark full-bleed hero; turns solid white on scroll. */
   heroOverlay?: boolean;
 }
 
-export default function SiteNav({ activeBlog = false, activeAbout = false, solid = false, heroOverlay = false }: SiteNavProps) {
+export default function SiteNav({ activeBlog = false, activeAbout = false, activeEvents = false, solid = false, heroOverlay = false }: SiteNavProps) {
   const [scrolled, setScrolled] = useState(solid);
   const [onDark, setOnDark] = useState(heroOverlay);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,7 +37,7 @@ export default function SiteNav({ activeBlog = false, activeAbout = false, solid
     }
     let darkZones: Array<[number, number]> = [];
     const refreshZones = () => {
-      darkZones = Array.from(document.querySelectorAll(".panel.dk, .ab-hero, .stat-strip, footer")).map((el) => {
+      darkZones = Array.from(document.querySelectorAll(".panel.dk, .ab-hero, .stat-strip, .ev-hero, footer")).map((el) => {
         const r = el.getBoundingClientRect();
         const top = r.top + window.scrollY;
         return [top, top + (el as HTMLElement).offsetHeight] as [number, number];
@@ -79,6 +81,7 @@ export default function SiteNav({ activeBlog = false, activeAbout = false, solid
             {/* About hidden until the /team page is ready — page still reachable directly */}
             {/* <Link href="/team" className={activeAbout ? "active" : undefined}>About</Link> */}
             <Link href="/blog" className={activeBlog ? "active" : undefined}>News</Link>
+            <Link href="/events" className={activeEvents ? "active" : undefined}>Events</Link>
           </div>
           <div className="nav-cta">
             <a href={siteConfig.appUrl} className="nav-login">Login</a>
@@ -99,6 +102,7 @@ export default function SiteNav({ activeBlog = false, activeAbout = false, solid
             <Link href="/#why" onClick={close}>Why LightBoxTV</Link>
             {/* <Link href="/team" onClick={close}>About</Link> */}
             <Link href="/blog" onClick={close}>News</Link>
+            <Link href="/events" onClick={close}>Events</Link>
             <a href={siteConfig.appUrl} onClick={close}>Login</a>
           </div>
           <div className="mm-footer">

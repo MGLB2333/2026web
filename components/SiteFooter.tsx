@@ -19,6 +19,7 @@ export default function SiteFooter() {
               <Link href="/#platform">Platform</Link>
               <Link href="/#why">Why LightBoxTV</Link>
               <Link href="/blog">Blog</Link>
+              <Link href="/events">Events</Link>
             </div>
             <div>
               <h6>Company</h6>

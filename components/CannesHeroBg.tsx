@@ -2,9 +2,17 @@
 
 import { useEffect, useRef } from "react";
 
-/** Animated background for the Cannes hero: gradient base, low-opacity photo,
+interface CannesHeroBgProps {
+  /** Photo behind the hero:
+      - undefined → use the default Cannes photo from CSS (the /cannes page),
+      - a path     → use that image,
+      - null       → no photo (gradient + glows only). */
+  image?: string | null;
+}
+
+/** Animated background for the Cannes-style hero: gradient base, low-opacity photo,
     drifting glows + grid (CSS), with a subtle pointer parallax on the fx layer. */
-export default function CannesHeroBg() {
+export default function CannesHeroBg({ image }: CannesHeroBgProps = {}) {
   const fxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,7 +56,9 @@ export default function CannesHeroBg() {
   return (
     <div className="cn-bg" aria-hidden="true">
       <div className="base"></div>
-      <div className="photo"></div>
+      {image !== null && (
+        <div className="photo" style={image ? { backgroundImage: `url("${image}")` } : undefined}></div>
+      )}
       <div className="fx" ref={fxRef}>
         <div className="glow g1"></div>
         <div className="glow g2"></div>

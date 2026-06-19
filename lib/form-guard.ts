@@ -15,6 +15,7 @@ export const FIELD_MAX: Record<string, number> = {
   title: 120,
   reason: 40,
   topic: 200,
+  event: 120,
   message: 5000,
 };
 

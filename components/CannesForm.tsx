@@ -2,7 +2,15 @@
 
 import { useEffect, useState } from "react";
 
-export default function CannesForm() {
+interface CannesFormProps {
+  /** When set, included with the submission so the email names the event. */
+  eventName?: string;
+  /** Card heading + intro overrides (defaults suit the Cannes page). */
+  heading?: string;
+  intro?: string;
+}
+
+export default function CannesForm({ eventName, heading, intro }: CannesFormProps = {}) {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -49,8 +57,8 @@ export default function CannesForm() {
     <div className="form-card">
       <div className={`form-fields ${sent ? "hide" : ""}`.trim()}>
         <div className="fc-head">
-          <h2>Request a meeting</h2>
-          <p>Tell us a little about you and we&apos;ll find a time to connect on the Croisette.</p>
+          <h2>{heading ?? "Request a meeting"}</h2>
+          <p>{intro ?? "Tell us a little about you and we'll find a time to connect on the Croisette."}</p>
         </div>
         <form onSubmit={handleSubmit} noValidate>
           {/* Honeypot — hidden from users, catches bots. */}
@@ -59,6 +67,7 @@ export default function CannesForm() {
             <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
           </div>
           <input type="hidden" name="ts" value={ts} />
+          {eventName && <input type="hidden" name="event" value={eventName} />}
           <div className="form-row">
             <div className="field">
               <label htmlFor="first">First name <span className="req">*</span></label>

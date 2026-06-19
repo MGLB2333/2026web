@@ -41,8 +41,9 @@ export async function POST(request: Request) {
   const company = String(data.company ?? "").trim();
   const email = String(data.email ?? "").trim();
   const topic = String(data.topic ?? "").trim();
+  const event = String(data.event ?? "").trim();
 
-  const overLong = overLengthField({ first, last, title, company, email, topic });
+  const overLong = overLengthField({ first, last, title, company, email, topic, event });
   if (overLong) {
     return NextResponse.json({ error: "One of your fields is too long." }, { status: 400 });
   }
@@ -55,8 +56,10 @@ export async function POST(request: Request) {
   }
 
   const name = `${first} ${last}`;
+  const eventLabel = event || "Cannes";
 
   const lines = [
+    `Event: ${eventLabel}`,
     `Name: ${name}`,
     `Job title: ${title}`,
     `Company: ${company}`,
@@ -71,7 +74,7 @@ export async function POST(request: Request) {
       from: FROM_EMAIL,
       to: TO_EMAIL,
       replyTo: email,
-      subject: `Cannes meeting request — ${name}, ${company}`,
+      subject: `${eventLabel} meeting request — ${name}, ${company}`,
       text: lines.join("\n"),
     });
 
