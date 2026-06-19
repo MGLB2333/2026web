@@ -14,7 +14,9 @@
 .field input::placeholder,.field textarea::placeholder{color:#9AA3AF;}
 .form-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:8px;}
 .form-actions .btn{font-size:16px;padding:15px 30px;}
+.form-actions .btn:disabled{opacity:.6;cursor:default;}
 .form-note{font-size:13px;color:var(--muted);}
+.form-error{margin-top:14px;font-size:14px;font-weight:600;color:#C0362C;}
 .form-success{display:none;text-align:center;padding:30px 10px;}
 .form-success.show{display:block;}
 .form-success .tick{width:64px;height:64px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;}

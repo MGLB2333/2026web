@@ -4,15 +4,39 @@ import { useState } from "react";
 
 export default function CannesForm() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!e.currentTarget.checkValidity()) {
-      e.currentTarget.reportValidity();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
-    // TODO: POST the form data to your backend / form service here.
-    setSent(true);
+
+    setSubmitting(true);
+    setError("");
+
+    const fd = new FormData(form);
+    const payload = Object.fromEntries(fd.entries());
+
+    try {
+      const res = await fetch("/api/cannes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || "Something went wrong. Please try again.");
+      }
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -23,6 +47,11 @@ export default function CannesForm() {
           <p>Tell us a little about you and we&apos;ll find a time to connect on the Croisette.</p>
         </div>
         <form onSubmit={handleSubmit} noValidate>
+          {/* Honeypot — hidden from users, catches bots. */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+            <label htmlFor="company_url">Company website</label>
+            <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
           <div className="form-row">
             <div className="field">
               <label htmlFor="first">First name <span className="req">*</span></label>
@@ -50,9 +79,12 @@ export default function CannesForm() {
             <input id="topic" name="topic" type="text" placeholder="What would you like to talk about?" />
           </div>
           <div className="form-actions">
-            <button type="submit" className="btn dark">Request a meeting <span className="ar">↗</span></button>
+            <button type="submit" className="btn dark" disabled={submitting}>
+              {submitting ? "Sending…" : <>Request a meeting <span className="ar">↗</span></>}
+            </button>
             <span className="form-note">We&apos;ll be in touch to confirm a time.</span>
           </div>
+          {error && <p className="form-error" role="alert">{error}</p>}
         </form>
       </div>
       <div className={`form-success ${sent ? "show" : ""}`.trim()}>

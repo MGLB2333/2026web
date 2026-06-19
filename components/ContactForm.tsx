@@ -14,6 +14,8 @@ const REASONS = [
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
   const [reason, setReason] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   // Preselect the enquiry reason from ?reason= without forcing dynamic rendering.
   useEffect(() => {
@@ -21,21 +23,48 @@ export default function ContactForm() {
     if (r && REASONS.some((o) => o.value === r)) setReason(r);
   }, []);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!e.currentTarget.checkValidity()) {
-      e.currentTarget.reportValidity();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
-    // TODO: POST the form data to your backend / form service here.
-    setSent(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    setSubmitting(true);
+    setError("");
+
+    const fd = new FormData(form);
+    const payload = Object.fromEntries(fd.entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || "Something went wrong. Please try again.");
+      }
+      setSent(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
     <div className="form-card reveal">
       <div className={`form-fields ${sent ? "hide" : ""}`.trim()}>
         <form onSubmit={handleSubmit} noValidate>
+          {/* Honeypot — hidden from users, catches bots. */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+            <label htmlFor="company_url">Company website</label>
+            <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
           <div className="form-row">
             <div className="field">
               <label htmlFor="first">First name <span className="req">*</span></label>
@@ -76,9 +105,12 @@ export default function ContactForm() {
             <textarea id="message" name="message" placeholder="Tell us a little about what you're looking for…" required></textarea>
           </div>
           <div className="form-actions">
-            <button type="submit" className="btn dark">Send message <span className="ar">↗</span></button>
+            <button type="submit" className="btn dark" disabled={submitting}>
+              {submitting ? "Sending…" : <>Send message <span className="ar">↗</span></>}
+            </button>
             <span className="form-note">By submitting, you agree to be contacted about your enquiry.</span>
           </div>
+          {error && <p className="form-error" role="alert">{error}</p>}
         </form>
       </div>
       <div className={`form-success ${sent ? "show" : ""}`.trim()}>
