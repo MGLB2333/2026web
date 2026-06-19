@@ -1,11 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CannesForm() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  // Render time, sent with the form so the server can reject instant (bot) submits.
+  const [ts, setTs] = useState(0);
+
+  useEffect(() => {
+    setTs(Date.now());
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -52,31 +58,32 @@ export default function CannesForm() {
             <label htmlFor="company_url">Company website</label>
             <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
           </div>
+          <input type="hidden" name="ts" value={ts} />
           <div className="form-row">
             <div className="field">
               <label htmlFor="first">First name <span className="req">*</span></label>
-              <input id="first" name="first" type="text" placeholder="Jane" required />
+              <input id="first" name="first" type="text" placeholder="Jane" required maxLength={80} />
             </div>
             <div className="field">
               <label htmlFor="last">Last name <span className="req">*</span></label>
-              <input id="last" name="last" type="text" placeholder="Doe" required />
+              <input id="last" name="last" type="text" placeholder="Doe" required maxLength={80} />
             </div>
           </div>
           <div className="field full">
             <label htmlFor="title">Job title <span className="req">*</span></label>
-            <input id="title" name="title" type="text" placeholder="Head of TV Planning" required />
+            <input id="title" name="title" type="text" placeholder="Head of TV Planning" required maxLength={120} />
           </div>
           <div className="field full">
             <label htmlFor="company">Company name <span className="req">*</span></label>
-            <input id="company" name="company" type="text" placeholder="Agency name" required />
+            <input id="company" name="company" type="text" placeholder="Agency name" required maxLength={120} />
           </div>
           <div className="field full">
             <label htmlFor="email">Email address <span className="req">*</span></label>
-            <input id="email" name="email" type="email" placeholder="jane@agency.com" required />
+            <input id="email" name="email" type="email" placeholder="jane@agency.com" required maxLength={160} />
           </div>
           <div className="field full">
             <label htmlFor="topic">Meeting topic</label>
-            <input id="topic" name="topic" type="text" placeholder="What would you like to talk about?" />
+            <input id="topic" name="topic" type="text" placeholder="What would you like to talk about?" maxLength={200} />
           </div>
           <div className="form-actions">
             <button type="submit" className="btn dark" disabled={submitting}>

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { sameOrigin, hasInjection, overLengthField, fillTimeOk } from "@/lib/form-guard";
 
 export const runtime = "nodejs";
 
@@ -25,6 +26,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Email service is not configured." }, { status: 500 });
   }
 
+  // Only accept submissions that originate from our own site.
+  if (!sameOrigin(request)) {
+    return NextResponse.json({ error: "Invalid request." }, { status: 403 });
+  }
+
   let data: Record<string, unknown>;
   try {
     data = await request.json();
@@ -32,8 +38,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  // Honeypot: real users leave this empty; bots tend to fill every field.
-  if (typeof data.company_url === "string" && data.company_url.trim() !== "") {
+  // Honeypot + time trap: silently accept so bots don't learn why they failed.
+  const honeypotTripped = typeof data.company_url === "string" && data.company_url.trim() !== "";
+  if (honeypotTripped || !fillTimeOk(data.ts)) {
     return NextResponse.json({ ok: true });
   }
 
@@ -44,10 +51,15 @@ export async function POST(request: Request) {
   const reason = String(data.reason ?? "").trim();
   const message = String(data.message ?? "").trim();
 
+  const overLong = overLengthField({ first, last, email, company, reason, message });
+  if (overLong) {
+    return NextResponse.json({ error: "One of your fields is too long." }, { status: 400 });
+  }
+
   if (!first || !last || !email || !reason || !message) {
     return NextResponse.json({ error: "Please complete all required fields." }, { status: 400 });
   }
-  if (!isEmail(email)) {
+  if (!isEmail(email) || hasInjection(email)) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 

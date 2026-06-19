@@ -16,9 +16,12 @@ export default function ContactForm() {
   const [reason, setReason] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  // Render time, sent with the form so the server can reject instant (bot) submits.
+  const [ts, setTs] = useState(0);
 
-  // Preselect the enquiry reason from ?reason= without forcing dynamic rendering.
   useEffect(() => {
+    setTs(Date.now());
+    // Preselect the enquiry reason from ?reason= without forcing dynamic rendering.
     const r = new URLSearchParams(window.location.search).get("reason");
     if (r && REASONS.some((o) => o.value === r)) setReason(r);
   }, []);
@@ -65,24 +68,25 @@ export default function ContactForm() {
             <label htmlFor="company_url">Company website</label>
             <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
           </div>
+          <input type="hidden" name="ts" value={ts} />
           <div className="form-row">
             <div className="field">
               <label htmlFor="first">First name <span className="req">*</span></label>
-              <input id="first" name="first" type="text" placeholder="Jane" required />
+              <input id="first" name="first" type="text" placeholder="Jane" required maxLength={80} />
             </div>
             <div className="field">
               <label htmlFor="last">Last name <span className="req">*</span></label>
-              <input id="last" name="last" type="text" placeholder="Doe" required />
+              <input id="last" name="last" type="text" placeholder="Doe" required maxLength={80} />
             </div>
           </div>
           <div className="form-row">
             <div className="field">
               <label htmlFor="email">Work email <span className="req">*</span></label>
-              <input id="email" name="email" type="email" placeholder="jane@agency.com" required />
+              <input id="email" name="email" type="email" placeholder="jane@agency.com" required maxLength={160} />
             </div>
             <div className="field">
               <label htmlFor="company">Company</label>
-              <input id="company" name="company" type="text" placeholder="Agency name" />
+              <input id="company" name="company" type="text" placeholder="Agency name" maxLength={120} />
             </div>
           </div>
           <div className="field full">
@@ -102,7 +106,7 @@ export default function ContactForm() {
           </div>
           <div className="field full">
             <label htmlFor="message">Message <span className="req">*</span></label>
-            <textarea id="message" name="message" placeholder="Tell us a little about what you're looking for…" required></textarea>
+            <textarea id="message" name="message" placeholder="Tell us a little about what you're looking for…" required maxLength={5000}></textarea>
           </div>
           <div className="form-actions">
             <button type="submit" className="btn dark" disabled={submitting}>
