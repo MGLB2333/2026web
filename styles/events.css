@@ -12,7 +12,9 @@
 .ev-hero h1{font-size:clamp(40px,5.4vw,76px);letter-spacing:-.03em;line-height:1;max-width:16ch;}
 .ev-hero p{margin-top:20px;font-size:clamp(17px,1.4vw,20px);color:var(--dmuted);max-width:52ch;}
 
-.ev-sec{padding:80px 0;}
+/* Explicit backgrounds so the sections never show the body colour through —
+   home.css sets a dark body that can persist across client-side navigation. */
+.ev-sec{padding:80px 0;background:#fff;}
 .ev-sec.alt{background:var(--tint);}
 .ev-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:36px;}
 .ev-head .lbl{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);}
