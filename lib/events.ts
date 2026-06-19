@@ -125,7 +125,7 @@ export const events: EventItem[] = [
     end: "2026-04-16",
     when: "15 — 16 April 2026",
     location: "Kings Place, London",
-    image: "/images/nvf.webp",
+    image: "/images/newvideofrontiers.jpg",
   },
   {
     slug: "connected-tv-world-summit-2026",
