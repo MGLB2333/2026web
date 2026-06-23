@@ -4,6 +4,9 @@
 
 :root{ --wrap:1180px; }
 body{background:var(--paper);}
+/* Opaque white wrapper so the blog index never shows the body colour through —
+   home.css sets a dark body that can persist across client-side navigation. */
+.blog-page{background:var(--paper);}
 
 /* ===== BLOG INDEX ===== */
 .blog-hero{padding:150px 0 56px;}

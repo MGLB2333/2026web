@@ -25,22 +25,24 @@ export default function BlogIndexPage() {
       <SiteNav activeBlog />
       <ScrollReveal />
 
-      <BlogPosts featured={featured} posts={gridPosts} categories={categories} />
+      <div className="blog-page">
+        <BlogPosts featured={featured} posts={gridPosts} categories={categories} />
 
-      <section className="endcta">
-        <div className="wrap">
-          <div className="box reveal">
-            <h2>See LightBoxTV in action.</h2>
-            <p>
-              See how leading agencies are replacing fragmented workflows with one platform for
-              planning, managing and measuring modern TV advertising.
-            </p>
-            <Link href="/contact?reason=demo" className="btn lite">
-              Book a demo <span className="ar">↗</span>
-            </Link>
+        <section className="endcta">
+          <div className="wrap">
+            <div className="box reveal">
+              <h2>See LightBoxTV in action.</h2>
+              <p>
+                See how leading agencies are replacing fragmented workflows with one platform for
+                planning, managing and measuring modern TV advertising.
+              </p>
+              <Link href="/contact?reason=demo" className="btn lite">
+                Book a demo <span className="ar">↗</span>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <SiteFooter />
     </>
