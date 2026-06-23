@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // "/team" omitted while the About page is unfinished — still reachable by direct URL, just not advertised for indexing.
-  const staticRoutes = ["", "/blog", "/contact", "/privacy", "/cookies", "/terms", "/cannes", "/events", "/ctv-supply-path-explorer", "/tagtester"].map((p) => ({
+  const staticRoutes = ["", "/blog", "/contact", "/privacy", "/cookies", "/terms", "/cannes", "/events", "/ctv-supply-path-explorer", "/tagtester", "/complexity-assessment"].map((p) => ({
     url: `${siteConfig.url}${p}`,
     lastModified: new Date(),
   }));
