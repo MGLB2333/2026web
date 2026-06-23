@@ -20,7 +20,6 @@ export default function SiteFooter() {
               <Link href="/#why">Why LightBoxTV</Link>
               <Link href="/blog">Blog</Link>
               <Link href="/events">Events</Link>
-              <Link href="/tagtester">VAST Tag Tester</Link>
             </div>
             <div>
               <h6>Company</h6>
