@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const REASONS = [
   { value: "demo", label: "Book a demo" },
@@ -16,11 +16,12 @@ export default function ContactForm() {
   const [reason, setReason] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
-  // Render time, sent with the form so the server can reject instant (bot) submits.
-  const [ts, setTs] = useState(0);
+  // Client-measured time the form was on screen, so the server can reject instant
+  // (bot) submits without relying on the client and server clocks agreeing.
+  const mountedAt = useRef(0);
 
   useEffect(() => {
-    setTs(Date.now());
+    mountedAt.current = Date.now();
     // Preselect the enquiry reason from ?reason= without forcing dynamic rendering.
     const r = new URLSearchParams(window.location.search).get("reason");
     if (r && REASONS.some((o) => o.value === r)) setReason(r);
@@ -39,6 +40,7 @@ export default function ContactForm() {
 
     const fd = new FormData(form);
     const payload = Object.fromEntries(fd.entries());
+    payload.elapsed = String(mountedAt.current ? Date.now() - mountedAt.current : "");
 
     try {
       const res = await fetch("/api/contact", {
@@ -68,7 +70,6 @@ export default function ContactForm() {
             <label htmlFor="company_url">Company website</label>
             <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
           </div>
-          <input type="hidden" name="ts" value={ts} />
           <div className="form-row">
             <div className="field">
               <label htmlFor="first">First name <span className="req">*</span></label>

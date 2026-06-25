@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface CannesFormProps {
   /** When set, included with the submission so the email names the event. */
@@ -14,11 +14,12 @@ export default function CannesForm({ eventName, heading, intro }: CannesFormProp
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
-  // Render time, sent with the form so the server can reject instant (bot) submits.
-  const [ts, setTs] = useState(0);
+  // Client-measured time the form was on screen, so the server can reject instant
+  // (bot) submits without relying on the client and server clocks agreeing.
+  const mountedAt = useRef(0);
 
   useEffect(() => {
-    setTs(Date.now());
+    mountedAt.current = Date.now();
   }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -34,6 +35,7 @@ export default function CannesForm({ eventName, heading, intro }: CannesFormProp
 
     const fd = new FormData(form);
     const payload = Object.fromEntries(fd.entries());
+    payload.elapsed = String(mountedAt.current ? Date.now() - mountedAt.current : "");
 
     try {
       const res = await fetch("/api/cannes", {
@@ -66,7 +68,6 @@ export default function CannesForm({ eventName, heading, intro }: CannesFormProp
             <label htmlFor="company_url">Company website</label>
             <input id="company_url" name="company_url" type="text" tabIndex={-1} autoComplete="off" />
           </div>
-          <input type="hidden" name="ts" value={ts} />
           {eventName && <input type="hidden" name="event" value={eventName} />}
           <div className="form-row">
             <div className="field">

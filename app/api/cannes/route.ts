@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
   // Honeypot + time trap: silently accept so bots don't learn why they failed.
   const honeypotTripped = typeof data.company_url === "string" && data.company_url.trim() !== "";
-  if (honeypotTripped || !fillTimeOk(data.ts)) {
+  if (honeypotTripped || !fillTimeOk(data.elapsed)) {
     return NextResponse.json({ ok: true });
   }
 

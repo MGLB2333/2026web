@@ -2,9 +2,7 @@
 // Layered with the existing honeypot + field validation in each route.
 
 /** Minimum time (ms) a human plausibly takes to fill a form. Faster = bot. */
-const MIN_FILL_MS = 2000;
-/** Reject form tokens older than this (stale / replayed). */
-const MAX_FILL_MS = 1000 * 60 * 60 * 6; // 6 hours
+const MIN_FILL_MS = 1500;
 
 /** Per-field length ceilings; anything longer is payload-stuffing, not a real enquiry. */
 export const FIELD_MAX: Record<string, number> = {
@@ -46,10 +44,13 @@ export function overLengthField(fields: Record<string, string>): string | null {
   return null;
 }
 
-/** Validate the elapsed time since the form was rendered (anti-bot time trap). */
-export function fillTimeOk(ts: unknown): boolean {
-  const started = Number(ts);
-  if (!Number.isFinite(started) || started <= 0) return false;
-  const elapsed = Date.now() - started;
-  return elapsed >= MIN_FILL_MS && elapsed <= MAX_FILL_MS;
+/** Anti-bot time trap. `elapsed` is the time in ms the CLIENT measured between
+ *  the form rendering and submission (both from the client's own clock, so there
+ *  is no client-vs-server clock-skew problem). We only reject when we have a
+ *  reliable elapsed that's implausibly fast (a bot); a missing/garbage value
+ *  fails OPEN so a real submission is never silently dropped. */
+export function fillTimeOk(elapsed: unknown): boolean {
+  const ms = Number(elapsed);
+  if (!Number.isFinite(ms)) return true; // unknown — don't drop a legit submission
+  return ms >= MIN_FILL_MS;
 }
