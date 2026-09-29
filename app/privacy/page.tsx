@@ -236,7 +236,7 @@ export default function PrivacyPage() {
 
         <div className="art-foot">
           <Link href="/" className="btn line">← Back to home</Link>
-          <Link href="/terms" className="btn line">Terms of Service →</Link>
+          <Link href="/data-privacy" className="btn line">Data Privacy Policy →</Link>
         </div>
       </article>
 
