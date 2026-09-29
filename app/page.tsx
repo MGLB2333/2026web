@@ -2,6 +2,7 @@ import Link from "next/link";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
+import CoverImage from "@/components/CoverImage";
 import { getAllPostMeta } from "@/lib/posts";
 import "@/styles/home.css";
 
@@ -153,8 +154,12 @@ export default function HomePage() {
             <div className="news">
               {latest.map((post, i) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="acard reveal">
-                  <div className={`thumb ${THUMBS[i] ?? ""}`.trim()}>
-                    {post.image && <img src={post.image} alt="" />}
+                  <div
+                    className={["thumb", THUMBS[i], post.imageFit === "contain" && "fit-contain"]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    <CoverImage post={post} />
                     <span className="cat">{post.category}</span>
                   </div>
                   <div className="ab">

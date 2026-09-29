@@ -93,12 +93,14 @@ body{background:var(--black);}
 .acard{background:var(--paper);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s, box-shadow .3s;border:1px solid var(--line);}
 .cr .acard{border-color:rgba(0,0,0,.08);}
 .acard:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(0,0,0,.12);}
-.acard .thumb{height:170px;position:relative;background:var(--grad);display:flex;align-items:center;justify-content:center;}
+.acard .thumb{height:170px;position:relative;background:var(--grad);display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .acard .thumb.v2{background:linear-gradient(135deg,#3A2C9E,#22C3ED);}
 .acard .thumb.v3{background:linear-gradient(135deg,#0E9AC9,#1B1550);}
 .acard .thumb .cubebox{width:78px;height:78px;}
 .acard .thumb .cat{position:absolute;left:15px;top:15px;font-size:12px;font-weight:600;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 12px;border-radius:999px;z-index:1;}
 .acard .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.acard .thumb.fit-contain img{object-fit:contain;padding:14px;}
+.acard .thumb.fit-contain .cover-blur{object-fit:cover;padding:0;transform:scale(1.25);filter:blur(18px) saturate(1.25) brightness(.9);}
 .acard .ab{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1;}
 .acard .date{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
 .acard h4{font-family:var(--disp);font-weight:500;font-size:19px;line-height:1.18;letter-spacing:-.02em;margin:10px 0 9px;}
