@@ -7,6 +7,7 @@ import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
 import PostCard from "@/components/PostCard";
+import CoverImage from "@/components/CoverImage";
 import { mdxComponents } from "@/components/mdx-components";
 import { getPost, getPostSlugs, getRelatedPosts } from "@/lib/posts";
 import { siteConfig } from "@/lib/site";
@@ -68,7 +69,9 @@ export default async function ArticlePage({
   });
 
   const related = getRelatedPosts(slug);
-  const coverClass = ["art-cover", post.cover].filter(Boolean).join(" ");
+  const coverClass = ["art-cover", post.cover, post.imageFit === "contain" && "fit-contain"]
+    .filter(Boolean)
+    .join(" ");
   const subject = encodeURIComponent(post.title);
   const shareUrl = encodeURIComponent(`${siteConfig.url}/blog/${slug}`);
 
@@ -90,7 +93,7 @@ export default async function ArticlePage({
             <div className="who">{post.author ?? `${siteConfig.name} Team`}<span>Published {post.formattedDate}</span></div>
           </div>
           <div className={coverClass}>
-            {post.image && <img src={post.image} alt={post.title} />}
+            <CoverImage post={post} alt={post.title} />
           </div>
         </div>
       </header>

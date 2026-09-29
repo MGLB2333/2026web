@@ -16,6 +16,10 @@ export interface PostFrontmatter {
   /** Optional cover image (e.g. "/images/foo.png"). Overlays the gradient on the
       article hero, blog cards and homepage teaser. */
   image?: string;
+  /** How the cover image fills its frame. Defaults to "cover" (crops to fill).
+      Use "contain" for portrait or text-heavy artwork that must not be cropped —
+      it is shown whole against a blurred, zoomed copy of itself. */
+  imageFit?: "cover" | "contain";
   /** Marks the post shown in the large "featured" slot on the blog index. */
   featured?: boolean;
   author?: string;

@@ -3,11 +3,17 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import PostCard from "./PostCard";
+import CoverImage from "./CoverImage";
 import type { PostMeta } from "@/lib/posts";
 
 /** Blog index body: hero with category filter, featured post, and the
     filterable post grid. Filter state lives here so the chips (in the hero)
-    drive the grid below. */
+    drive the grid below.
+
+    `posts` is every post, featured included. Under "All" the featured post gets
+    the large card and is held out of the grid; under a category filter the
+    featured card is hidden and the post appears in the grid like any other, so
+    filtering never hides a matching post. */
 export default function BlogPosts({
   featured,
   posts,
@@ -20,7 +26,10 @@ export default function BlogPosts({
   const [active, setActive] = useState("all");
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const visible = active === "all" ? posts : posts.filter((p) => p.category === active);
+  const visible =
+    active === "all"
+      ? posts.filter((p) => p.slug !== featured?.slug)
+      : posts.filter((p) => p.category === active);
 
   // Reveal grid cards on mount and on every filter change (the global
   // ScrollReveal runs once, so re-rendered cards need to be shown here).
@@ -60,11 +69,11 @@ export default function BlogPosts({
         </div>
       </header>
 
-      {featured && (
+      {featured && active === "all" && (
         <section className="wrap">
           <Link href={`/blog/${featured.slug}`} className="featured reveal">
-            <div className="ph">
-              {featured.image && <img src={featured.image} alt="" />}
+            <div className={["ph", featured.imageFit === "contain" && "fit-contain"].filter(Boolean).join(" ")}>
+              <CoverImage post={featured} />
               <span className="cat">{featured.category}</span>
             </div>
             <div className="fb">

@@ -17,8 +17,9 @@ export const metadata: Metadata = {
 export default function BlogIndexPage() {
   const posts = getAllPostMeta();
   const featured = getFeaturedPost(posts) ?? null;
-  const gridPosts = posts.filter((p) => p.slug !== featured?.slug);
-  const categories = getCategories(gridPosts);
+  // Chips come from every post, featured included — otherwise a category with
+  // only one post in it disappears from the filters the moment it is featured.
+  const categories = getCategories(posts);
 
   return (
     <>
@@ -26,7 +27,7 @@ export default function BlogIndexPage() {
       <ScrollReveal />
 
       <div className="blog-page">
-        <BlogPosts featured={featured} posts={gridPosts} categories={categories} />
+        <BlogPosts featured={featured} posts={posts} categories={categories} />
 
         <section className="endcta">
           <div className="wrap">

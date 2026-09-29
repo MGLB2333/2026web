@@ -41,7 +41,12 @@ body{background:var(--paper);}
 .pcard .ph.v6{background:linear-gradient(135deg,#3A2C9E,#0C0D11);}
 .pcard .ph .cat{position:absolute;left:16px;top:16px;font-size:12px;font-weight:600;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 13px;border-radius:999px;z-index:1;}
 /* cover image overlaying the gradient on any card thumbnail (.pcard / .featured) */
+/* clip to the thumbnail box: the scaled .cover-blur backdrop must not bleed
+   into the card text alongside it. */
+.ph{overflow:hidden;}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.ph.fit-contain img{object-fit:contain;padding:16px;}
+.ph.fit-contain .cover-blur{object-fit:cover;padding:0;transform:scale(1.25);filter:blur(20px) saturate(1.25) brightness(.9);}
 .pcard .pb{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1;}
 .pcard .meta{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
 .pcard h3{font-size:21px;line-height:1.2;margin:11px 0 9px;}
