@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav />
 
       <header className="art-hero">
@@ -97,6 +97,6 @@ export default function TermsPage() {
       </article>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

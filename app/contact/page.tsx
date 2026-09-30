@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav />
       <ScrollReveal />
 
@@ -46,6 +46,6 @@ export default function ContactPage() {
       </header>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

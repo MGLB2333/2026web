@@ -22,7 +22,7 @@ export default function BlogIndexPage() {
   const categories = getCategories(posts);
 
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav activeBlog />
       <ScrollReveal />
 
@@ -46,6 +46,6 @@ export default function BlogIndexPage() {
       </div>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

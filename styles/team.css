@@ -3,8 +3,6 @@
    Nav inversion over the dark hero/stat-strip is handled by base.css (.on-dark);
    SiteNav treats .ab-hero and .stat-strip as dark zones. */
 
-:root{ --wrap:1180px; }
-
 /* hero — type-led, dark */
 .ab-hero{background:radial-gradient(120% 110% at 78% -10%, #16213c 0%, #0C0D11 56%);color:#fff;padding:172px 0 110px;}
 .ab-hero .eyebrow{display:block;color:var(--blue);margin-bottom:24px;}

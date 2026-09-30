@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav />
 
       <header className="art-hero">
@@ -93,6 +93,6 @@ export default function CookiesPage() {
       </article>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

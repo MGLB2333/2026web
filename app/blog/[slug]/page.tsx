@@ -76,7 +76,7 @@ export default async function ArticlePage({
   const shareUrl = encodeURIComponent(`${siteConfig.url}/blog/${slug}`);
 
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav activeBlog />
       <ScrollReveal />
 
@@ -125,6 +125,6 @@ export default async function ArticlePage({
       )}
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

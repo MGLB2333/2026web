@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function CannesPage() {
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav heroOverlay />
 
       <div className="cn-page">
@@ -47,6 +47,6 @@ export default function CannesPage() {
       </div>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

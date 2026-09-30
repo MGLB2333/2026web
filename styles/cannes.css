@@ -4,8 +4,6 @@
    The nav goes transparent-white over this hero (SiteNav `heroOverlay`),
    solid white on scroll. Builds on base.css + form.css. */
 
-:root{ --wrap:1180px; }
-
 .cn-page{background:#0A0C12;color:#fff;}
 
 /* hero */

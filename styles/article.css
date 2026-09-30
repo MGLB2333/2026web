@@ -1,8 +1,6 @@
 /* ===== LightBoxTV — article / legal pages ===== */
 /* Long-form reading layout used by Privacy, Terms and (future) blog articles. */
 
-:root{ --wrap:1180px; }
-
 .art-hero{padding:138px 0 0;}
 .crumb{font-size:14px;font-weight:600;color:var(--muted);margin-bottom:26px;display:inline-flex;gap:8px;align-items:center;}
 .crumb a:hover{color:var(--blue-deep);}

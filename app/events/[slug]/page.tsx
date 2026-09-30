@@ -44,7 +44,7 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
   // Past events: show a short note rather than a meeting form (the date has gone).
   if (past) {
     return (
-      <>
+      <div className="page-narrow">
         <SiteNav />
         <header className="ev-hero">
           <div className="glow a"></div>
@@ -62,12 +62,12 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
           </div>
         </header>
         <SiteFooter />
-      </>
+      </div>
     );
   }
 
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav heroOverlay />
 
       <div className="cn-page">
@@ -123,6 +123,6 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
       </div>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

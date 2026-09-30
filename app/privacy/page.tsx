@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav />
 
       <header className="art-hero">
@@ -241,6 +241,6 @@ export default function PrivacyPage() {
       </article>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }

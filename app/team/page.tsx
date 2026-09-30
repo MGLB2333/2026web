@@ -44,7 +44,7 @@ const TEAM = [
 
 export default function TeamPage() {
   return (
-    <>
+    <div className="page-narrow">
       <SiteNav activeAbout />
       <ScrollReveal />
 
@@ -132,6 +132,6 @@ export default function TeamPage() {
       </section>
 
       <SiteFooter />
-    </>
+    </div>
   );
 }
