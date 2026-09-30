@@ -3,9 +3,9 @@
    system reused by article "Keep reading" rows and the end CTA. */
 
 :root{ --wrap:1180px; }
-body{background:var(--paper);}
-/* Opaque white wrapper so the blog index never shows the body colour through —
-   home.css sets a dark body that can persist across client-side navigation. */
+/* Opaque white wrapper, so the index never depends on the body colour. Kept
+   from the fix for a dark body that home.css used to set globally; base.css
+   now owns the body background, so this is belt and braces. */
 .blog-page{background:var(--paper);}
 
 /* ===== BLOG INDEX ===== */

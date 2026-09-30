@@ -4,7 +4,6 @@
    SiteNav treats .ab-hero and .stat-strip as dark zones. */
 
 :root{ --wrap:1180px; }
-body{background:var(--paper);}
 
 /* hero — type-led, dark */
 .ab-hero{background:radial-gradient(120% 110% at 78% -10%, #16213c 0%, #0C0D11 56%);color:#fff;padding:172px 0 110px;}

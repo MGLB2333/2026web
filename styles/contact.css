@@ -2,7 +2,6 @@
 /* Form card styles live in form.css (shared with the Cannes page). */
 
 :root{ --wrap:1180px; }
-body{background:var(--paper);}
 
 .contact-hero{padding:150px 0 0;}
 .contact-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:start;padding-bottom:96px;}
