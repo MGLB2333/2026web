@@ -17,9 +17,13 @@ export interface PostFrontmatter {
       article hero, blog cards and homepage teaser. */
   image?: string;
   /** How the cover image fills its frame. Defaults to "cover" (crops to fill).
-      Use "contain" for portrait or text-heavy artwork that must not be cropped —
-      it is shown whole against a blurred, zoomed copy of itself. */
+      Use "contain" for artwork that must not be cropped — it is shown whole,
+      inset slightly, against a blurred zoomed copy of itself. */
   imageFit?: "cover" | "contain";
+  /** Backdrop behind a "contain" image, as any CSS colour. Set it to the
+      artwork's own background (e.g. "#fff" for a logo on white) so the inset
+      reads as a border rather than a frame; omit it for the blurred copy. */
+  imageBg?: string;
   /** Marks the post shown in the large "featured" slot on the blog index. */
   featured?: boolean;
   author?: string;
