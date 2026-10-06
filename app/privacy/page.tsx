@@ -30,6 +30,8 @@ export default function PrivacyPage() {
 
       <article className="wrap">
         <div className="prose">
+          <p><em>This Privacy Policy covers personal information collected through our website and related business interactions. If you use the LightBoxTV platform, or would like information about how we handle platform and audience data, please see our <Link href="/data-privacy">Platform and Data Privacy Notice</Link>.</em></p>
+
           <h2>Introduction</h2>
           <p>LightBoxTV Ltd (“LightBoxTV”, “we”, “our”, or “us”) is committed to protecting and respecting your privacy.</p>
           <p>This Privacy Policy explains how we collect, use, store and protect your personal information when you visit LightBoxTV.com, request a demonstration, contact us, attend an event, or otherwise interact with us.</p>

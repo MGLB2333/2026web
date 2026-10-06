@@ -5,9 +5,9 @@ import SiteFooter from "@/components/SiteFooter";
 import "@/styles/article.css";
 
 export const metadata: Metadata = {
-  title: "Data Privacy Policy",
+  title: "Platform Privacy Notice",
   description:
-    "LightBox TV LTD data privacy policy — what information we collect through our advertising technology, how we process it, and the legal bases we rely on.",
+    "How LightBox TV Ltd handles personal information in connection with the LightBoxTV platform, including user accounts, client operations and Data Partner audience data.",
   alternates: { canonical: "/data-privacy" },
 };
 
@@ -21,90 +21,138 @@ export default function DataPrivacyPage() {
           <div className="crumb"><Link href="/">← Back to home</Link></div>
           <div className="art-head">
             <span className="cat">Legal</span>
-            <h1>LightBox TV LTD Privacy Policy</h1>
-            <p className="sub">What information we collect through our advertising technology, how we process it, and the legal bases we rely on.</p>
+            <h1>LightBoxTV Platform Privacy Notice</h1>
+            <p className="sub">This notice explains how LightBox TV Ltd handles personal information in connection with the LightBoxTV platform.</p>
           </div>
-          <div className="art-meta"><div className="who">Updated on 09.04.2022</div></div>
+          <div className="art-meta"><div className="who">Last updated: October 2026</div></div>
         </div>
       </header>
 
       <article className="wrap">
         <div className="prose">
-          <h2>About our business</h2>
-          <p>LightboxTV provides tools and services that help advertisers and agencies run advertising campaigns on OTT/CTV devices (e.g., streaming devices, “Smart TVs”). We provide services to companies including media agencies and their clients—global advertisers—who may purchase media or data by using our technologies. We use the information that we receive from our partners, including publishers and supply side platforms (“SSPs”), demand side platforms (“DSPs”), data management platforms (“DMPs”), data providers and others (together, “Partners”), to engage in targeted advertising and related data services. This means that we partner with third-party OTT/CTV devices to enrich or serve ads within their TV channels that are customised to their users. We do this by inferring interests and locations from information we have been passed or collected. The overall result is that the consumer receives advertising which is more specifically tailored to his or her interests, and the advertiser reaches an audience which is more interested in its products or services. As noted below, consumers have choices with respect whether to allow targeted advertising and we honour those preferences.</p>
-          <p>LightBoxTV participates in the IAB Europe Transparency &amp; Consent Framework and complies with its Specifications and Policies. LightBoxTV’s identification number within the framework is 1175.</p>
+          <p><em>For information about how we process personal information through our website and in connection with enquiries, marketing and other business activities, please see our <Link href="/privacy">Website Privacy Policy</Link>.</em></p>
 
-          <h2>1. What information do we collect?</h2>
-          <p><strong>In Short:</strong> We collect personal information that you provide to us.</p>
-          <p>We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.</p>
-          <p><strong>Sensitive Information.</strong> We do not process sensitive information.</p>
-          <p>All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.</p>
+          <h2>About LightBoxTV</h2>
+          <p>LightBox TV Ltd (“LightBoxTV”, “we”, “us” or “our”) provides a technology platform that businesses in the advertising and media industry use to plan, manage, measure and report on advertising campaigns.</p>
+          <p>Our clients, typically media agencies and advertisers, determine how they use the platform, including the campaigns they manage and the data and audience products they choose to use.</p>
 
-          <h3>Information automatically collected</h3>
-          <p><strong>In Short:</strong> Some information — such as your Internet Protocol (IP) address and/or browser and device characteristics — is collected automatically when you visit our Services.</p>
-          <p>We automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.</p>
-          <p>Like many businesses, we also collect information through cookies and similar technologies.</p>
-          <p>The information we collect includes:</p>
+          <h2>1. Information we collect</h2>
+          <p>The information we process depends on how you and your organisation use the platform.</p>
+          <p><strong>Information you or your organisation provide</strong></p>
           <ul>
-            <li><strong>Log and Usage Data.</strong> Log and usage data is service-related, diagnostic, usage, and performance information our servers automatically collect when you access or use our Services and which we record in log files. Depending on how you interact with us, this log data may include your IP address, device information, browser type, and settings and information about your activity in the Services (such as the date/time stamps associated with your usage, pages and files viewed, searches, and other actions you take such as which features you use), device event information (such as system activity, error reports (sometimes called &apos;crash dumps&apos;), and hardware settings).</li>
-            <li><strong>Location Data.</strong> We collect location data such as information about your device&apos;s location, which can be either precise or imprecise. How much information we collect depends on the type and settings of the device you use to access the Services. For example, we may use GPS and other technologies to collect geolocation data that tells us your current location (based on your IP address). You can opt out of allowing us to collect this information either by refusing access to the information or by disabling your Location setting on your device. However, if you choose to opt out, you may not be able to use certain aspects of the Services.</li>
+            <li>Account information for platform users, such as name, business email address, employer, job title and access permissions.</li>
+            <li>Correspondence with us about the platform, including support requests.</li>
+            <li>Information entered into or provided to the platform by our clients. This is primarily business and campaign information but may include information relating to individuals.</li>
           </ul>
-
-          <h2>2. How do we process your information?</h2>
-          <p><strong>In Short:</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.</p>
-          <p>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</p>
+          <p><strong>Information collected automatically</strong></p>
           <ul>
-            <li><strong>To facilitate account creation and authentication and otherwise manage user accounts.</strong> We may process your information so you can create and log in to your account, as well as keep your account in working order.</li>
-            <li><strong>To save or protect an individual&apos;s vital interest.</strong> We may process your information when necessary to save or protect an individual’s vital interest, such as to prevent harm.</li>
+            <li>Technical information such as IP address, browser and device type.</li>
+            <li>Login, authentication and security information.</li>
+            <li>Records of activity within the platform.</li>
+            <li>Diagnostic and performance information.</li>
           </ul>
+          <p><strong>Information from other sources</strong></p>
+          <p>We may receive information from our clients and other parties where necessary to provide and operate the platform, including information required to establish and administer user accounts.</p>
 
-          <h2>3. What legal bases do we rely on to process your information?</h2>
-          <p><strong>In Short:</strong> We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e. legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfil our contractual obligations, to protect your rights, or to fulfil our legitimate business interests.</p>
-          <p>If you are located in the EU or UK, this section applies to you.</p>
-          <p>The General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your personal information. As such, we may rely on the following legal bases to process your personal information:</p>
+          <h2>2. Data Partners and audience data</h2>
+          <p>LightBoxTV may make data and audience products from third-party data providers (“Data Partners”) available through the platform. Clients may choose to use these products in connection with their advertising activities.</p>
+          <p>Data Partners collect and develop their datasets independently of LightBoxTV and are responsible for their processing of personal data in accordance with applicable data protection law.</p>
+          <p>Audience data made available through the platform is generally provided in aggregated or otherwise non-identifying form.</p>
+          <p>LightBoxTV does not use Data Partner products for the purpose of identifying or re-identifying individuals.</p>
+          <p>Further information about relevant Data Partners and products is available on request.</p>
+
+          <h2>3. Our role</h2>
+          <p>LightBoxTV acts as a controller where we determine the purposes and means of processing personal information. This includes activities such as administering user accounts and access, maintaining the security of the platform and supporting platform users.</p>
+          <p>Where we process personal information on behalf of a client, our processing is governed by our agreement with that client and applicable data protection law.</p>
+          <p>Where personal data is processed in connection with Data Partner products or other third-party data, the respective roles and responsibilities of LightBoxTV, our clients and relevant third parties depend on the nature of the processing and the applicable contractual arrangements.</p>
+
+          <h2>4. How we use personal information</h2>
+          <p>Where we act as a controller, we may process personal information to:</p>
           <ul>
-            <li><strong>Consent.</strong> We may process your information if you have given us permission (i.e. consent) to use your personal information for a specific purpose. You can withdraw your consent at any time.</li>
-            <li><strong>Legal Obligations.</strong> We may process your information where we believe it is necessary for compliance with our legal obligations, such as to cooperate with a law enforcement body or regulatory agency, exercise or defend our legal rights, or disclose your information as evidence in litigation in which we are involved.</li>
-            <li><strong>Vital Interests.</strong> We may process your information where we believe it is necessary to protect your vital interests or the vital interests of a third party, such as situations involving potential threats to the safety of any person.</li>
+            <li>provide, administer and support the platform and our services;</li>
+            <li>create and manage user accounts and access;</li>
+            <li>communicate with platform users;</li>
+            <li>operate, secure, maintain and improve the platform and our services;</li>
+            <li>support and manage our client relationships;</li>
+            <li>detect and prevent misuse, fraud and security incidents; and</li>
+            <li>comply with legal and regulatory obligations and protect our legal rights.</li>
           </ul>
+          <p>Where we process personal information on behalf of a client, we do so in accordance with that client’s instructions and our agreement with them.</p>
 
-          <h2>4. Do we use cookies and other tracking technologies?</h2>
-          <p><strong>In Short:</strong> We may use cookies and other tracking technologies to collect and store your information.</p>
-          <p>We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information.</p>
-          <h3>Specific cookie types used by LightBox TV LTD</h3>
-          <p><strong>Google Analytics (persistent).</strong> LightBox TV LTD uses Google Analytics to help us analyse how visitors use the Website. Among other things, Google Analytics uses cookies to collect information about the number of visits to the Website, the webpage that referred visitors to the Website, language, device, browser and operating system, the pages visitors view within the Website and other similar details. We do not share this information with third parties. When used this way the Google Analytics cookie is a persistent cookie, and will remain on your device until the cookie expires or you delete it.</p>
+          <h2>5. Legal bases</h2>
+          <p>Where UK or EU data protection law applies and we act as a controller, we rely on one or more of the following legal bases:</p>
+          <ul>
+            <li><strong>Contract</strong> – where processing is necessary to provide the platform and our services under our agreements with clients and users.</li>
+            <li><strong>Legitimate interests</strong> – to administer, operate, secure and improve the platform, support its users and manage our client relationships, where those interests are not overridden by individual rights.</li>
+            <li><strong>Consent</strong> – where consent is required or otherwise relied upon.</li>
+            <li><strong>Legal obligation</strong> – where processing is necessary to comply with applicable law.</li>
+          </ul>
+          <p>Where we process personal information on behalf of a client, that client is responsible for determining the applicable legal basis for the processing.</p>
 
-          <h2>5. How long do we keep your information?</h2>
-          <p><strong>In Short:</strong> We keep your information for as long as necessary to fulfil the purposes outlined in this privacy notice unless otherwise required by law.</p>
-          <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than the period of time in which users have an account with us.</p>
-          <p>When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymise such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.</p>
+          <h2>6. Sharing information</h2>
+          <p>We may share personal information where necessary with:</p>
+          <ul>
+            <li>service providers that support the operation and provision of our platform and services;</li>
+            <li>professional advisers, such as lawyers, accountants and insurers;</li>
+            <li>clients and business partners where necessary to provide our services;</li>
+            <li>regulators, public authorities or law enforcement where required by law or otherwise permitted under applicable law; and</li>
+            <li>parties involved in a potential or actual investment, merger, acquisition, restructuring or sale of all or part of our business.</li>
+          </ul>
+          <p>Where required, we put appropriate contractual and data protection safeguards in place.</p>
 
-          <h2>6. Do we collect information from minors?</h2>
-          <p><strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age.</p>
-          <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at <a href="mailto:contact@lightboxtv.co.uk">contact@lightboxtv.co.uk</a>.</p>
+          <h2>7. International transfers</h2>
+          <p>Personal information may be processed in countries outside the UK or European Economic Area.</p>
+          <p>Where applicable data protection law requires safeguards for an international transfer, we use appropriate measures, such as applicable adequacy arrangements or approved contractual safeguards.</p>
 
-          <h2>7. Do we make updates to this notice?</h2>
-          <p><strong>In Short:</strong> Yes, we will update this notice as necessary to stay compliant with relevant laws.</p>
-          <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated &apos;Revised&apos; date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.</p>
+          <h2>8. How long we keep information</h2>
+          <p>We retain personal information for as long as reasonably necessary for the purposes for which it is processed, taking into account our legal, regulatory and contractual obligations.</p>
+          <p>Where we process personal information on behalf of a client, retention may also be governed by our agreement with that client and their instructions.</p>
+          <p>When personal information is no longer required, we delete or anonymise it as appropriate.</p>
 
-          <h2>8. Controls for Do Not Track</h2>
-          <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&apos;DNT&apos;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognising and implementing DNT signals has been finalised. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.</p>
+          <h2>9. Security</h2>
+          <p>We use appropriate technical and organisational measures designed to protect personal information against unauthorised or unlawful processing and against accidental loss, destruction or damage.</p>
+          <p>Platform users are responsible for keeping their login credentials secure.</p>
 
-          <h2>9. How can I contact you about this notice?</h2>
-          <p>If you have questions or comments about this notice, you may email us at <a href="mailto:contact@lightboxtv.co.uk">contact@lightboxtv.co.uk</a> or by post to:</p>
+          <h2>10. Cookies and similar technologies</h2>
+          <p>We use cookies and similar technologies where necessary to operate and secure the platform and may use other technologies to understand and improve how it is used.</p>
+          <p>Where required by law, we obtain consent before using non-essential cookies or similar technologies.</p>
+          <p>Cookies and similar technologies used on our website are addressed in our <Link href="/privacy">Website Privacy Policy</Link>.</p>
+
+          <h2>11. Children</h2>
+          <p>The LightBoxTV platform is a business-to-business service and is not intended for use by children.</p>
+
+          <h2>12. Your rights</h2>
+          <p>Depending on applicable law and the circumstances, you may have rights in relation to your personal information, including rights to:</p>
+          <ul>
+            <li>access personal information held about you;</li>
+            <li>have inaccurate information corrected;</li>
+            <li>request deletion of your information;</li>
+            <li>restrict or object to certain processing;</li>
+            <li>receive certain information in a portable format; and</li>
+            <li>withdraw consent where processing is based on consent.</li>
+          </ul>
+          <p>These rights may be subject to conditions and exemptions under applicable law.</p>
+          <p>Where LightBoxTV processes personal information on behalf of a client or another controller, we may refer your request to that organisation or assist them in responding to it.</p>
+          <p>You may also have the right to complain to the UK Information Commissioner’s Office or another competent data protection authority. We would welcome the opportunity to address any concerns with you first.</p>
+
+          <h2>13. Changes to this notice</h2>
+          <p>We may update this notice from time to time to reflect changes to our services, processing activities or applicable law. The date at the top indicates when it was last updated.</p>
+
+          <h2>14. Contact us</h2>
+          <p>If you have questions about this notice or wish to exercise your rights, please contact:</p>
           <p>
-            LightBox TV LTD
+            LightBox TV Ltd
             <br />New House
-            <br />67-68 Hatton Garden, Suite 10
-            <br />London
-            <br />EC1N 8JY
+            <br />67–68 Hatton Garden, Suite 10
+            <br />London EC1N 8JY
             <br />United Kingdom
           </p>
+          <p>Email: <a href="mailto:privacy@lightboxtv.com">privacy@lightboxtv.com</a></p>
         </div>
 
         <div className="art-foot">
           <Link href="/" className="btn line">← Back to home</Link>
-          <Link href="/privacy" className="btn line">Privacy Policy →</Link>
+          <Link href="/privacy" className="btn line">Website Privacy Policy →</Link>
         </div>
       </article>
 
